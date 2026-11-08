@@ -1,57 +1,57 @@
-
-let count = 0;
+let tasks = [];
 
 function addTask() {
     let input = document.getElementById("taskInput");
-    let task = input.value.trim();
+    let taskName = input.value.trim();
 
-    if (task === "") {
+    if (taskName === "") {
         alert("Please enter a task");
         return;
     }
 
-    let list = document.getElementById("taskList");
-
-    let newTask = document.createElement("li");
-
-    let checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.style.flex = "none";
-
-    let taskText = document.createElement("span");
-    taskText.textContent = task;
-
-    checkbox.onclick = function() {
-        if (checkbox.checked) {
-            taskText.classList.add("completed");
-        } else {
-            taskText.classList.remove("completed");
-        }
-    };
-
-    let deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.className = "delete-btn";
-
-    deleteButton.onclick = function() {
-        newTask.remove();
-        count--;
-        updateCount();
-    };
-
-    newTask.appendChild(checkbox);
-    newTask.appendChild(taskText);
-    newTask.appendChild(deleteButton);
-
-    list.appendChild(newTask);
-
-    count++;
-    updateCount();
-
+    tasks.push({ name: taskName, done: false });
     input.value = "";
+    showTasks();
 }
 
-function updateCount() {
+function showTasks() {
+    let list = document.getElementById("taskList");
+    list.innerHTML = "";
+
+    tasks.forEach(function(task, index) {
+        let item = document.createElement("li");
+
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = task.done;
+
+        checkbox.onchange = function() {
+            task.done = checkbox.checked;
+            showTasks();
+        };
+
+        let text = document.createElement("span");
+        text.textContent = task.name;
+
+        if (task.done) {
+            text.className = "completed";
+        }
+
+        let button = document.createElement("button");
+        button.textContent = "Delete";
+
+        button.onclick = function() {
+            tasks.splice(index, 1);
+            showTasks();
+        };
+
+        item.appendChild(checkbox);
+        item.appendChild(text);
+        item.appendChild(button);
+        list.appendChild(item);
+    });
+
+    let remaining = tasks.filter(task => !task.done).length;
     document.getElementById("taskCount").textContent =
-        "Total tasks: " + count;
+        "Remaining tasks: " + remaining;
 }

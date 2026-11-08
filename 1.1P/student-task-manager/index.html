@@ -1,35 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Task Manager</title>
+    <title>SIT725 Task Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <div class="container">
-
-        <h1>My Task Manager</h1>
-        <p>Keep track of your daily tasks</p>
+        <h1>SIT725 Task Tracker</h1>
+        <p>Task 1.1P - Introduction to Programming</p>
+        <p>Student ID: s226115144</p>
 
         <div class="task-box">
-            <input type="text" id="taskInput" placeholder="Enter your task">
-            <button onclick="addTask()">Add Task</button>
+            <input type="text" id="taskInput" placeholder="Enter a task">
+            <button onclick="addTask()">Add</button>
         </div>
 
         <h3>My Tasks</h3>
-
         <ul id="taskList"></ul>
 
-        <p id="taskCount">Total tasks: 0</p>
-
+        <p id="taskCount">Remaining tasks: 0</p>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
