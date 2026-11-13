@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This is a simple web server I created using Node.js and Express.js for SIT725 Task 2.2P.
+For SIT725 Task 2.2P, I created a simple web server using Node.js and Express.js to understand how server-side applications handle HTTP requests.
 
-The project includes a basic HTML webpage and a GET API that accepts two numbers, adds them on the server, and returns the result in JSON format.
+The project started with a basic HTML webpage served through Express. I then developed a calculator API that performs addition, subtraction, multiplication, and division. Each operation has its own GET endpoint and returns the calculated result in JSON format.
 
 ## Technologies Used
 
@@ -17,7 +17,7 @@ The project includes a basic HTML webpage and a GET API that accepts two numbers
 ## Project Structure
 
 ```text
-SIT725-2.2P/
+2.2P/
 ├── public/
 │   └── index.html
 ├── server.js
@@ -31,27 +31,38 @@ The `node_modules` folder is excluded from GitHub using `.gitignore`.
 
 ## How to Run the Project
 
-1. Download or clone the GitHub repository.
-2. Open the project folder in a terminal.
-3. Install dependencies:
+1. Clone or download the GitHub repository.
+2. Open the `2.2P` folder in a terminal.
+3. Install the required dependencies:
 
    `npm install`
 
-4. Start the server:
+4. Start the Express server:
 
    `node server.js`
 
-5. Open `http://localhost:3000` in a browser to view the webpage.
+5. Visit `http://localhost:3000` to view the HTML webpage.
 
-## Testing the Addition API
+## Testing the Calculator APIs
 
-The application provides a GET endpoint at `/add`.
+The application includes four GET endpoints to perform basic mathematical operations.
 
-Example URL:
+| Operation | API Endpoint | Expected Result |
+|---|---|---|
+| Addition | `/add?num1=15&num2=25` | 40 |
+| Subtraction | `/subtract?num1=25&num2=15` | 10 |
+| Multiplication | `/multiply?num1=10&num2=5` | 50 |
+| Division | `/divide?num1=20&num2=4` | 5 |
+
+To test an operation, enter the endpoint after `http://localhost:3000` in the browser.
+
+### Example: Addition
+
+Request:
 
 `http://localhost:3000/add?num1=15&num2=25`
 
-Example response:
+Response:
 
 ```json
 {
@@ -61,8 +72,14 @@ Example response:
 }
 ```
 
-The server reads the two values from the URL, converts them into numbers, calculates their sum, and sends the result as JSON.
+### How the API Works
+
+The server receives the two numbers through URL query parameters. JavaScript's `Number()` function converts the values into numbers before performing the selected calculation.
+
+Express then sends the result back to the browser as a JSON response.
+
+For division, I also added a condition to check whether the second number is zero. If it is, the server returns an error message instead of calculating the result.
 
 ## Conclusion
 
-Through this task, I practised setting up an Express web server, serving an HTML webpage from a public folder, and handling GET requests. This helped me understand how a basic REST API works in Node.js.
+This task helped me understand how Node.js and Express.js work together to create a basic web server. I practised serving an HTML webpage, creating multiple GET endpoints, handling query parameters, and returning JSON responses. Extending the addition API into a basic calculator also helped me become more familiar with server-side programming.
