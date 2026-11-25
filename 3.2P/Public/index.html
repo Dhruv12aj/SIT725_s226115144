@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IncidentLens - Incident Timeline Explorer</title>
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Material Icons -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="blue-grey darken-4">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">
+                <i class="material-icons left">visibility</i>
+                IncidentLens
+            </a>
+        </div>
+    </nav>
+
+    <main class="container">
+
+        <!-- Page introduction -->
+        <div class="page-heading">
+            <h4>Incident Timeline Explorer</h4>
+            <p>
+                Follow the sequence of events in a security incident
+                and explore what happened at each stage.
+            </p>
+        </div>
+
+        <!-- Incident summary -->
+        <section class="case-summary">
+            <div class="row summary-top">
+
+                <div class="col s12 m7">
+                    <h5 id="incident-title">Loading incident...</h5>
+
+                    <p id="incident-date"></p>
+
+                    <span id="incident-status"
+                          class="status-label"></span>
+
+                    <div class="summary-numbers">
+                        <div>
+                            <h5 id="event-count">0</h5>
+                            <p>Total Events</p>
+                        </div>
+
+                        <div>
+                            <h5 id="high-count">0</h5>
+                            <p>High Severity</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s12 m5 center-align">
+                    <img
+                        class="incident-overview-image"
+                        src="/images/incident-overview.png"
+                        alt="Security monitoring dashboard with charts and alerts">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Investigation area -->
+        <div class="row investigation-area">
+
+            <div class="col s12 m7">
+                <h5>
+                    <i class="material-icons heading-icon">timeline</i>
+                    Event Timeline
+                </h5>
+
+                <div id="timeline"></div>
+            </div>
+
+            <div class="col s12 m5">
+                <h5>
+                    <i class="material-icons heading-icon">info_outline</i>
+                    Event Details
+                </h5>
+
+                <div class="card detail-card">
+                    <div class="card-content">
+
+                        <span class="card-title" id="detail-title">
+                            Select an event
+                        </span>
+
+                        <p id="detail-time"></p>
+
+                        <p id="detail-description">
+                            Click on a timeline event to view its details.
+                        </p>
+
+                        <div id="detail-severity"></div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="page-footer blue-grey darken-4">
+        <div class="footer-copyright">
+            <div class="container">
+                IncidentLens | SIT725 Task 3.2P
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

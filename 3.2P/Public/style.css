@@ -1,0 +1,285 @@
+
+/* Main page */
+body {
+    background-color: #f5f7f9;
+    font-family: Arial, sans-serif;
+    color: #263238;
+    min-height: 100vh;
+}
+
+nav .brand-logo {
+    font-size: 24px;
+}
+
+/* Page introduction */
+.page-heading {
+    margin: 45px 0 30px;
+}
+
+.page-heading h4 {
+    font-weight: 600;
+    color: #263238;
+}
+
+.page-heading p {
+    color: #607d8b;
+    font-size: 16px;
+}
+
+/* Incident summary */
+.case-summary {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #00897b;
+}
+
+.summary-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.case-summary h5 {
+    font-size: 22px;
+}
+
+.status-label {
+    display: inline-block;
+    background-color: #fff3e0;
+    color: #e65100;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+/* Incident statistics */
+.summary-numbers {
+    display: flex;
+    gap: 45px;
+    margin-top: 20px;
+}
+
+.summary-numbers h5 {
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.summary-numbers p {
+    margin-top: 0;
+    color: #78909c;
+    font-size: 13px;
+}
+
+/* Main incident illustration */
+.incident-overview-image {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px auto;
+    object-fit: contain;
+}
+
+/* Investigation section */
+.investigation-area {
+    margin-top: 40px;
+}
+
+.investigation-area h5 {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.heading-icon {
+    vertical-align: middle;
+    color: #00897b;
+    margin-right: 8px;
+}
+
+/* Vertical timeline */
+#timeline {
+    border-left: 3px solid #80cbc4;
+    margin-left: 20px;
+    padding-left: 22px;
+}
+
+/* Timeline events */
+.timeline-event {
+    position: relative;
+    background-color: white;
+    padding: 18px;
+    margin: 0 0 18px 0;
+    border-left: 4px solid #90a4ae;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Circular markers */
+.timeline-event::before {
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: 25px;
+    width: 16px;
+    height: 16px;
+    background-color: #00897b;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #00897b;
+}
+
+/* Event selection */
+.timeline-event:hover {
+    background-color: #eef7f5;
+}
+
+.timeline-event.selected {
+    background-color: #e0f2f1;
+    border-left-color: #00897b;
+}
+
+.timeline-event.selected::before {
+    background-color: #004d40;
+    box-shadow: 0 0 0 3px #80cbc4;
+}
+
+/* Event information */
+.timeline-event h6 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin: 8px 0;
+    font-size: 17px;
+}
+
+.event-time {
+    color: #607d8b;
+    font-size: 13px;
+}
+
+/* Timeline event icons */
+.event-icon {
+    font-size: 22px;
+    color: #00897b;
+}
+
+.timeline-event:nth-child(3) .event-icon,
+.timeline-event:nth-child(4) .event-icon {
+    color: #c62828;
+}
+
+.timeline-event:nth-child(5) .event-icon {
+    color: #388e3c;
+}
+
+/* Severity labels */
+.severity {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.severity.high {
+    background-color: #c62828;
+}
+
+.severity.medium {
+    background-color: #ef6c00;
+}
+
+.severity.low {
+    background-color: #388e3c;
+}
+
+/* Event details panel */
+.detail-card {
+    border-radius: 10px;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+}
+
+.detail-card .card-content {
+    padding: 25px;
+}
+
+.detail-card .card-title {
+    font-size: 23px;
+    color: #263238;
+    margin-bottom: 12px;
+}
+
+#detail-time {
+    color: #607d8b;
+    margin-bottom: 15px;
+}
+
+#detail-description {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+#detail-severity {
+    margin-top: 15px;
+}
+
+/* Footer */
+.page-footer {
+    margin-top: 50px;
+}
+
+/* Mobile layout */
+@media screen and (max-width: 600px) {
+    nav .brand-logo {
+        font-size: 20px;
+    }
+
+    .page-heading {
+        margin-top: 30px;
+    }
+
+    .page-heading h4 {
+        font-size: 27px;
+    }
+
+    .case-summary {
+        padding: 18px;
+    }
+
+    .summary-top {
+        display: block;
+    }
+
+    .incident-overview-image {
+        max-width: 250px;
+        margin: 20px auto 5px;
+    }
+
+    .summary-numbers {
+        gap: 30px;
+    }
+
+    .investigation-area {
+        margin-top: 25px;
+    }
+
+    #timeline {
+        margin-left: 15px;
+        padding-left: 18px;
+    }
+
+    .timeline-event::before {
+        left: -29px;
+    }
+
+    .detail-card .card-content {
+        padding: 20px;
+    }
+}
